@@ -19,7 +19,6 @@ Before starting, ensure you have [ThemeKit](https://shopify.github.io/themekit/)
 You should also have a mild understanding of Shopify's [theme settings](https://shopify.dev/docs/themes/settings), [Liquid template language](https://shopify.github.io/liquid/), [Ajax API](https://shopify.dev/docs/themes/ajax-api), and are familiar with the [git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
 Finally, as this is a frontend developer role, you should be comfortable writing Javascript, CSS, and HTML.
-
 ## Setup Instructions
 1. Create a new Git repository with this code
     - Github or BitBucket preferred
