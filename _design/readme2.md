@@ -51,11 +51,6 @@ Being mindful of the time constraint, start with completing Phase 1, and then mo
 
 The requirements for each step/phase are as follows:
 
-### Phase 1a
-- On collection pages, a "buy now" button shows under each available product when the toggle is on
-    - Do not show if the product is unavailable
-- When buy now is clicked, the browser is redirected to checkout with the chosen product in the cart
-
 ### Phase 1b
 
 - Create a second toggle to change the button to "add to cart"

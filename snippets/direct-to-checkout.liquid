@@ -1,0 +1,17 @@
+<!-- <form action="/cart/add" method="post"> -->
+<form action="/checkout/" method="post">
+
+	{% if product.variants.size == 1 %}
+		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+	{% else %}
+		<select name="id">
+			{% for variant in product.variants %}
+				<option value="{{ variant.id }}">{{ variant.title }}</option>
+			{% endfor %}
+		</select>
+	{% endif %}
+
+	<div>
+		<input type="submit" name="add" id="remove-this-class" value="To Checkout" class="for-loop-index-{{ forloop.index }} {{ product.id }} enable-cart-btns"></input>
+	</div>  
+</form>

@@ -118,10 +118,15 @@
   </div>
 
   {% if section.settings.enable-cart-btn == 'enable-checkout' %}
-  <a href="" class="enable-cart-btns">To Checkout</a>
-{% elsif section.settings.enable-cart-btn == 'enable-cart' %}  
-  <a href="" class="enable-cart-btns">To Cart</a>
-{% endif %}
+    <!-- <a href="Test" class="enable-cart-btns">To Checkout</a> -->
+    {% unless product.available == false %}
+      {% render 'direct-to-checkout', product: product%}
+    {% endunless %}
+
+  {% elsif section.settings.enable-cart-btn == 'enable-cart' %}  
+    <a href="" class="enable-cart-btns">To Cart</a>
+  {% endif %}
+
 </dl>
 
 
