@@ -6996,3 +6996,30 @@ hr {
 
 .store-availability-list__phone {
   margin-bottom: 0; }
+
+
+/*================================
+==================================
+CUSTOM CSS
+==================================
+================================*/
+a.enable-cart-btns{
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 20px;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
+}
+
+a.enable-cart-btns:hover{
+  background-color: #fff;
+  color: #000;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
+}

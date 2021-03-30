@@ -116,4 +116,13 @@
       <span>{{ 'products.product.sold_out' | t }}</span>
     </span>
   </div>
+
+  {% if section.settings.enable-cart-btn == 'enable-checkout' %}
+  <a href="" class="enable-cart-btns">To Checkout</a>
+{% elsif section.settings.enable-cart-btn == 'enable-cart' %}  
+  <a href="" class="enable-cart-btns">To Cart</a>
+{% endif %}
 </dl>
+
+
+
