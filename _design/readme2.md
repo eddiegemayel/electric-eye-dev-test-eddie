@@ -20,17 +20,18 @@ You should also have a mild understanding of Shopify's [theme settings](https://
 
 Finally, as this is a frontend developer role, you should be comfortable writing Javascript, CSS, and HTML.
 ## Setup Instructions
-1. Create a new Git repository with this code
-    - Github or BitBucket preferred
-    - Can be public or private
-1. Create a development branch off of master
-1. Complete the requirements
-    - Within your dev store
-    - Using the provided Debut theme (what this codebase is)
 1. Review/QA code against evaluation criteria
 1. Create a pull request into the master branch
 1. Share link or provide access to your repo
 1. Share development store URL
+
+
+
+
+
+
+
+
 
 ## Scenario
 
@@ -51,9 +52,6 @@ Being mindful of the time constraint, start with completing Phase 1, and then mo
 The requirements for each step/phase are as follows:
 
 ### Phase 1a
-
-- Create a new "Collection" section in the Shopify theme customize view, under "Theme settings"
-- This new setting section contains a toggle for enabling our new buy now feature
 - On collection pages, a "buy now" button shows under each available product when the toggle is on
     - Do not show if the product is unavailable
 - When buy now is clicked, the browser is redirected to checkout with the chosen product in the cart
