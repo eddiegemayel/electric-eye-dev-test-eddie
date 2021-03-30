@@ -142,7 +142,7 @@
           <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
             {% include 'product-card-grid', max_height: max_height, product: product %}
           </li>
-          
+
         {% else %}
           {% comment %}
           Add default products to help with onboarding for collections/all only.
@@ -274,6 +274,10 @@
         {
           "value": "enable-cart",
           "label": "Enable Add to Cart"
+        },
+        {
+          "value": "none-enabled",
+          "label": "No Button"
         }
       ],
       "default": "enable-checkout"
