@@ -125,7 +125,9 @@
 
   {% elsif section.settings.enable-cart-btn == 'enable-cart' %}  
 
-    <a href="" class="enable-cart-btns">To Cart</a>
+   {% unless product.available == false %}
+      {% render 'update-cart-ajax', product: product%}
+    {% endunless %}
 
   {% elsif section.settings.enable-cart-btn == 'none-enabled' %}  
 

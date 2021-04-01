@@ -53,8 +53,6 @@ The requirements for each step/phase are as follows:
 
 ### Phase 1b
 
-- Create a second toggle to change the button to "add to cart"
-- The "buy now" button under each product changes to an "add to cart" button when both toggles are on
 - When add to cart is clicked, the product is added to the cart, and the browser does not redirect
 - Ideally, the existing functionality for adding to cart on a PDP is replicated
     - Cart size counter in the header updates
