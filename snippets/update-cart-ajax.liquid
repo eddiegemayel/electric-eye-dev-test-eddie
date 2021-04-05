@@ -1,5 +1,6 @@
 <!-- <form action="/cart/add" method="post" id="add-to-cart"> -->
 
+	{% assign current_variant = variant.selected %}
 
 
 	{% if product.variants.size == 1 %}
@@ -7,7 +8,11 @@
 	{% else %}
 		<select name="id">
 			{% for variant in product.variants %}
+			 {% if variant.available %}
 				<option value="{{ variant.id }}">{{ variant.title }}</option>
+			 {% endif %}
+			 }
+			}
 			{% endfor %}
 		</select>
 	{% endif %}
@@ -17,5 +22,6 @@
 			
 		</input>
 	</div>  
+
 <!-- </form> -->
 

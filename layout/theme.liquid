@@ -188,23 +188,37 @@
         //when add to cart ajax is clicked
         $('.enable-cart-btns').click(function(){
 
+          // make sure it fires off
+          console.log("yes clicked");
+
           //grab products URL. tested this works
           var productURL = $(this).attr( "data-url" );
+
+          {% if product.variants.size == 1 %}
+            console.log("no variant");
+          {% else %}
+
+            console.log("yes variant");
+
+            //grab selected variant
+            // var varID = product.variants[0].id;
+
+            // console.log(varID);
+          {% endif %}
+          
 
           //couple ways to do this, but Im going thru .js file to get the variant associated
           $.getJSON(productURL + '.js', function(product) {
               var variant_id = product.variants[0].id;
+              // var variant_id = product.variants[0].id;
               console.log(variant_id);
 
               //run ajax add to cart with arguments.
               // hard coded quantity for right now
-              addItemToCart(variant_id, 12); 
+              addItemToCart(variant_id, 1); 
 
           });
-
           
-          // make sure it fires off
-          console.log("yes clicked");
 
         });
 

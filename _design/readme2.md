@@ -53,7 +53,6 @@ The requirements for each step/phase are as follows:
 
 ### Phase 1b
 
-- When add to cart is clicked, the product is added to the cart, and the browser does not redirect
 - Ideally, the existing functionality for adding to cart on a PDP is replicated
     - Cart size counter in the header updates
     - A small modal displays with information about the newly added product
