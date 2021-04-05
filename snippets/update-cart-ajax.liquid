@@ -1,4 +1,4 @@
-<!-- <form action="/cart/add" method="post"> -->
+<!-- <form action="/cart/add" method="post" id="add-to-cart"> -->
 
 
 
@@ -13,7 +13,9 @@
 	{% endif %}
 
 	<div>
-		<input type="submit" name="add" id="ajax-fire" value="To Cart" class="for-loop-index-{{ forloop.index }} {{ product.id }} enable-cart-btns" onclick="addItem('add-to-cart'); return false;"></input>
+		<input type="submit" name="add" id="ajax-fire" value="To Cart" class="for-loop-index-{{ forloop.index }} {{ product.id }} enable-cart-btns" data-url="{{ product.url }}">
+			
+		</input>
 	</div>  
 <!-- </form> -->
 

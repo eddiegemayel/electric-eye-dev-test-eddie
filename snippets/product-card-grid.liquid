@@ -43,7 +43,7 @@
   </noscript>
 
   <a class="" href="{{ product.url | within: collection }}">
-    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+    <div class="h4 grid-view-item__title product-card__title prod-id-{{ product.id }}" aria-hidden="true">{{ product.title }}</div>
   </a>
 
   {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
