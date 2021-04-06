@@ -193,6 +193,9 @@
 
           //grab products URL. tested this works
           var productURL = $(this).attr( "data-url" );
+          var productTitle = $(this).attr( "data-name" );
+
+          console.log(productTitle);
 
           {% if product.variants.size == 1 %}
             console.log("no variant");
@@ -221,7 +224,7 @@
 
               //run ajax add to cart with arguments.
               // hard coded quantity for right now
-              addItemToCart(variant_id, 1); 
+              addItemToCart(variant_id, 1, productTitle); 
 
           });
           
@@ -232,7 +235,7 @@
 
 
       //actual add to cart ajax call function
-       function addItemToCart(variant_id, qty) {
+       function addItemToCart(variant_id, qty, name) {
 
             //take in arguments, put them in data json
             data = {
@@ -254,13 +257,77 @@
               dataType: 'json',
               success: function() { 
                 console.log('success');
-                //window.location.href = '/cart'; 
+
+                //add item to cart count variable
+                cartCount++; 
+
+                //for testing
+                console.log("new cart count : "+ cartCount);
+
+                //add html to modal before showing it
+                $('.modal').html('<span class="close" id="close">✕</span> <p class="prod-ajax-name">' + name + ' was added to the cart!</p> <p class="modal-new-cart-count">There are now ' + cartCount + ' items in your cart.</p>'); 
+
+                //run open modal function
+                openModal();
+
               },
               error: function() { 
-                console.log('fail');
+                //add to cart failed
+                alert("Variant out of stock!");
               }
             });
         }
+
+
+      // centers modal 
+      function centerModal(){
+
+      var modal = $('.modal.open');
+      var mWidth = modal.outerWidth()
+      var mHeight = modal.outerHeight();
+      var width = $(window).width();
+      var height = $(window).height();
+
+      if((width % 1) != 0){
+        width = Math.round(width)
+      }
+      if((height % 1) != 0){
+        height = Math.round(height)
+      }
+        var topPos = (height / 2) - (mHeight / 2);
+        var leftPos = (width / 2) - (mWidth / 2); 
+        modal.css({top: topPos, left:leftPos})
+      }
+
+      $('.modal--overlay').on('click', function(){
+        var overlay = $('.modal--overlay');
+        closeModal(overlay);
+        console.log("close click");
+      });
+
+
+
+      //open modal function to be called on success
+      function openModal(){
+
+        //remove hidden classes
+        $('.modal').removeClass('hidden').addClass('open');
+        $('.modal--overlay').removeClass('hidden').addClass('open');
+
+        //make sure you cant scroll
+        $('body').css('overflow', 'hidden');
+
+        //run center function
+        centerModal();
+      }
+
+      //close modal and overlay
+      function closeModal(overlay){
+        $(overlay).addClass('hidden').removeClass('open');
+        $('.modal.open').addClass('hidden').removeClass('open');
+        $('body').css('overflow', 'auto');
+        console.log("close modal fire");
+      }
 
 
 
@@ -346,16 +413,6 @@
       //   });
       //   console.log(product);
       //   console.log(form_id);
-      // }
-
-      // function addToCartOk(product) { 
-      //   cartCount++; 
-      //   $('.modal').html(product.title + ' was added to the cart!'); 
-      //   $('#cart-number').replaceWith('<span data-cart-count id="cart-number"> (" + cartCount + ")</span>');
-      // } 
-
-      // function addToCartFail(obj, status) { 
-      //   $('.modal').html('The product you are trying to add is out of stock.'); 
       // }
 
     </script>

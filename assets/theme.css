@@ -7024,14 +7024,24 @@ a.enable-cart-btns:hover{
   -o-transition: all 0.31s ease;
 }
 
-div.modal {
+
+body.template-collection div.modal {
    max-width: 575px;
    background: white;
    border: 5px solid #111;
    padding: 50px 65px;
    position: fixed;
    z-index: 1000;
+
+   width: 300px;
+    height: 300px;
 }
+
+body.template-collection div.modal.open {
+   display: block !important;
+   opacity: 1 !important;
+}
+
 .modal .close {
    position: absolute;
    top: 10px;
@@ -7048,6 +7058,16 @@ div.modal--overlay {
    z-index: 100;
    background-color: rgba(0, 0, 0, 0.4);
 }
-div.hidden-mod {
-  display: none;
+div.hidden {
+  display: none !important;
+}
+
+p.prod-ajax-name{
+  display: inline;
+  margin-top: 500px;
+  color: #000 !important;
+}
+
+p.modal-new-cart-count{
+  margin-top: 40px;
 }

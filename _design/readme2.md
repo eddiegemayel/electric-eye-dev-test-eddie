@@ -55,12 +55,9 @@ The requirements for each step/phase are as follows:
 
 - Ideally, the existing functionality for adding to cart on a PDP is replicated
     - Cart size counter in the header updates
-    - A small modal displays with information about the newly added product
     - Bonus points for handling the error the same way as well
 
 ### Phase 2
-
-- Create a third toggle to show or hide product variants
 
 - When a different variant is selected, the data in the product listing changes
     - Image
@@ -69,7 +66,7 @@ The requirements for each step/phase are as follows:
 - Bonus Points:
     - Always have an in-stock variant selected by default
     - Handle errors 
-        - Match functionality on PDPs
+    - Match functionality on PDPs
 
 ## Evaluation Criteria
 
