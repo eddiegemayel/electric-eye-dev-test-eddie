@@ -255,6 +255,7 @@
         });
 
 
+
       //actual add to cart ajax call function
        function addItemToCart(variant_id, qty, name) {
 
@@ -286,7 +287,7 @@
                 console.log("new cart count : "+ cartCount);
 
                 //add html to modal before showing it
-                $('.modal').html('<span class="close close-the-modal" id="close-the-modal">✕</span> <p class="prod-ajax-name">' + name + ' was added to the cart!</p> <p class="modal-new-cart-count">There are now ' + cartCount + ' items in your cart.</p>'); 
+                $('.modal').html('<span class="close close-the-modal" id="close-the-modal">✕</span> <p class="prod-ajax-name"><span class="modal-strong">' + name + '</span> was added to the cart!</p> <p class="modal-new-cart-count">There are now <span class="modal-strong">' + cartCount + '</span> items in your <a href="/cart" class="modal-anchor">cart.</a></p>'); 
 
                 //run open modal function
                 openModal();

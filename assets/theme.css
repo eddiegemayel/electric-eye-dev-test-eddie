@@ -7071,3 +7071,11 @@ p.prod-ajax-name{
 p.modal-new-cart-count{
   margin-top: 40px;
 }
+
+a.modal-anchor{
+  text-decoration: underline;
+}
+
+span.modal-strong{
+  font-weight: bold !important;
+}
