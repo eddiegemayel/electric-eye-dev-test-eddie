@@ -6,7 +6,7 @@
 	{% if product.variants.size == 1 %}
 		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
 	{% else %}
-		<select class="collection-variant-dropdown" name="id">
+		<select id="{{ product.title | handleize }}" class="collection-variant-dropdown" name="id">
 			{% for variant in product.variants %}
 			 {% if variant.available %}
 				<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-src-img="{{ variant.image.src | img_url : 'master' }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>

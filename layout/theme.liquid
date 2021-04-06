@@ -250,10 +250,22 @@
           //alert to test, grabs the ID which houses the correct URL
 
           var newVariantURL = this.options[e.target.selectedIndex].id;
+          var newVariantProductAssociated = this.id;
+
+          var imgToUpdate = $("img").hasClass(newVariantProductAssociated);
+
+          console.log(newVariantProductAssociated);
+          console.log($("img").hasClass(newVariantProductAssociated));
+
+          // if ($("img").hasClass(newVariantProductAssociated)) {
+          //   $(this).attr('src', newVariantURL);
+          // }
           // alert(newVariantURL);
           // alert(this.options[e.target.selectedIndex].id);
 
-          $('.6623350554788').attr('src', newVariantURL);
+          $("img." + newVariantProductAssociated).attr('src', newVariantURL);
+
+          // $("img").hasClass(newVariantProductAssociated).attr('src', newVariantURL);
         });
     
       //for X to close modal
