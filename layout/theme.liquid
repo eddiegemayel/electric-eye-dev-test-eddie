@@ -182,7 +182,28 @@
       //doc ready
       $(document).ready(function(){   
 
-        console.log(cartCount + " items in cart");
+
+        //on click function to close modal
+        $('.modal--overlay').on('click', function(){
+
+          //if overlay bg is clicked, close the popup
+          var overlay = $('.modal--overlay');
+          closeModal(overlay);
+          console.log("close click");
+        });
+
+
+        //on click function to close modal
+        $('.close-the-modal').on('click', function(){
+
+          //if X is clicked, close the popup
+          var overlay = $('.modal--overlay');
+          closeModal(overlay);
+          console.log("close X click");
+        });
+        
+
+        console.log(cartCount + " current items in cart.");
 
 
         //when add to cart ajax is clicked
@@ -265,7 +286,7 @@
                 console.log("new cart count : "+ cartCount);
 
                 //add html to modal before showing it
-                $('.modal').html('<span class="close" id="close">✕</span> <p class="prod-ajax-name">' + name + ' was added to the cart!</p> <p class="modal-new-cart-count">There are now ' + cartCount + ' items in your cart.</p>'); 
+                $('.modal').html('<span class="close close-the-modal" id="close-the-modal">✕</span> <p class="prod-ajax-name">' + name + ' was added to the cart!</p> <p class="modal-new-cart-count">There are now ' + cartCount + ' items in your cart.</p>'); 
 
                 //run open modal function
                 openModal();
@@ -298,12 +319,6 @@
         var leftPos = (width / 2) - (mWidth / 2); 
         modal.css({top: topPos, left:leftPos})
       }
-
-      $('.modal--overlay').on('click', function(){
-        var overlay = $('.modal--overlay');
-        closeModal(overlay);
-        console.log("close click");
-      });
 
 
 
@@ -382,38 +397,6 @@
               
       //     }, count*1100);
       // });
-
-
-      // function addItemToCart(variant_id, qty) {
-      //     data = {
-      //       "id": variant_id,
-      //       "quantity": qty
-      //     }
-      //     jQuery.ajax({
-      //       type: 'POST',
-      //       url: '/cart/add.js',
-      //       data: data,
-      //       dataType: 'json',
-      //       success: function() { 
-      //         console.log('success');
-      //         $('.loader').show(); 
-      //       }
-      //     });
-      // }
-
-
-      // function addItem(form_id) {
-      //   $.ajax({
-      //     type: 'POST', 
-      //     url: '/cart/add.js',
-      //     dataType: 'json', 
-      //     data: $('#'+form_id).serialize(),
-      //     success: addToCartOk,
-      //     error: addToCartFail
-      //   });
-      //   console.log(product);
-      //   console.log(form_id);
-      // }
 
     </script>
 

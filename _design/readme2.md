@@ -26,13 +26,6 @@ Finally, as this is a frontend developer role, you should be comfortable writing
 1. Share development store URL
 
 
-
-
-
-
-
-
-
 ## Scenario
 
 Imagine you are already on our team, and a client request comes in. They want the ability to show or hide a "buy now" button on their collection pages, allowing users to buy a product and go to checkout immediately.
@@ -63,10 +56,17 @@ The requirements for each step/phase are as follows:
     - Image
     - Price
     - Product Link (Append Variant to URL)
+
 - Bonus Points:
     - Always have an in-stock variant selected by default
     - Handle errors 
     - Match functionality on PDPs
+
+
+
+
+
+
 
 ## Evaluation Criteria
 
