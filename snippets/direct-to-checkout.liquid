@@ -1,6 +1,7 @@
 <!-- <form action="/cart/add" method="post"> -->
 <form action="/checkout/" method="post">
 
+	{% if section.settings.enable-variants %}
 	{% if product.variants.size == 1 %}
 		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
 	{% else %}
@@ -9,6 +10,7 @@
 				<option value="{{ variant.id }}">{{ variant.title }}</option>
 			{% endfor %}
 		</select>
+	{% endif %}
 	{% endif %}
 
 	<div>

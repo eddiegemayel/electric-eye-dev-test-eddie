@@ -209,9 +209,15 @@
 
           //couple ways to do this, but Im going thru .js file to get the variant associated
           $.getJSON(productURL + '.js', function(product) {
+
+              console.log($(this).closest("select").attr("name"));
+
+
               var variant_id = product.variants[0].id;
               // var variant_id = product.variants[0].id;
               console.log(variant_id);
+
+
 
               //run ajax add to cart with arguments.
               // hard coded quantity for right now

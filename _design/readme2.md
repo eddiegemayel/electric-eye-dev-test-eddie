@@ -61,9 +61,7 @@ The requirements for each step/phase are as follows:
 ### Phase 2
 
 - Create a third toggle to show or hide product variants
-- If a product has multiple variants, a select dropdown displays
-    - Each of the product's variants display as options
-    - Disable variants that are unavailable
+
 - When a different variant is selected, the data in the product listing changes
     - Image
     - Price

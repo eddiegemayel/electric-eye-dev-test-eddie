@@ -1,27 +1,33 @@
 <!-- <form action="/cart/add" method="post" id="add-to-cart"> -->
 
-	{% assign current_variant = variant.selected %}
+	
 
-
+	{% if section.settings.enable-variants %}
 	{% if product.variants.size == 1 %}
 		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
 	{% else %}
 		<select name="id">
 			{% for variant in product.variants %}
 			 {% if variant.available %}
-				<option value="{{ variant.id }}">{{ variant.title }}</option>
+				<option value="{{ variant.id }}" data-index="{{ variant.id }}">{{ variant.title }}</option>
 			 {% endif %}
 			 }
 			}
 			{% endfor %}
 		</select>
 	{% endif %}
+	{% endif %}
+
+
+	{% assign current_var = product.selected_or_first_available_variant %}
 
 	<div>
 		<input type="submit" name="add" id="ajax-fire" value="To Cart" class="for-loop-index-{{ forloop.index }} {{ product.id }} enable-cart-btns" data-url="{{ product.url }}">
 			
 		</input>
 	</div>  
+
+
 
 <!-- </form> -->
 
