@@ -245,14 +245,15 @@
 
 
     
-      //this works
+      //for X to close modal
+      //have to wrap in document.on because it is a dynamic element that doesnt exist until Add to cart button is clicked
       $(document).on("click", "span.close-the-modal" , function() {
-          //if X is clicked, close the popup
-          var overlay = $('.modal--overlay');
-          closeModal(overlay);
-          console.log("close X click");
-        });
 
+        //if X is clicked, close the popup
+        var overlay = $('.modal--overlay');
+        closeModal(overlay);
+        console.log("close X click");
+      });
 
 
       //actual add to cart ajax call function
