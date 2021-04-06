@@ -178,11 +178,8 @@
       // to update it later on
       var cartCount = '{{ cart.item_count }}';
 
-
       //doc ready
       $(document).ready(function(){   
-
-
 
         //on click function to close modal
         $('.modal--overlay').on('click', function(){
@@ -194,9 +191,7 @@
         });
 
 
-
         console.log(cartCount + " current items in cart.");
-
 
         //when add to cart ajax is clicked
         $('.enable-cart-btns').click(function(){
@@ -230,22 +225,19 @@
 
               console.log($(this).closest("select").attr("name"));
 
+              //this grabs only first variant for now, plan to make dynamic later
               var variant_id = product.variants[0].id;
-              // var variant_id = product.variants[0].id;
               console.log(variant_id);
 
-              //run ajax add to cart with arguments.
-              // hard coded quantity for right now
+              //run ajax add to cart with arguments
+              // hard coded quantity for ajax call
               addItemToCart(variant_id, 1, productTitle); 
-
           });
-          
         });
+      });// end of document ready wrap
 
-      });// end of doc ready
 
-
-      //get variant selectd dropdown image URL
+      //get variant dropdown image URL and price when clicked
        $(document).on('change', '.collection-variant-dropdown', function(e) {
           
           // grab image URL associated with varianat clicked
@@ -254,6 +246,14 @@
           //grab product URL that variant belongs to
           var newVariantProductAssociated = this.id;
 
+          //grab product price that variant belongs to
+          var grabPrice = this.options[e.target.selectedIndex];
+
+          //store in variable above then grab class where price is stored with money liquid filter
+          var newVariantProductPrice = $(grabPrice).attr("class");
+
+          console.log(newVariantProductPrice);
+
           //testing logs
           // var imgToUpdate = $("img").hasClass(newVariantProductAssociated);
           // console.log(newVariantProductAssociated);
@@ -261,6 +261,9 @@
 
           //look for image with the same product name. Update its src with the new URL
           $("img." + newVariantProductAssociated).attr('src', newVariantURL);
+
+          //look for image with the same product name. Update its src with the new URL
+          $("span#" + newVariantProductAssociated).text("from " + newVariantProductPrice);
         });
 
 
@@ -315,10 +318,10 @@
               },
               error: function() { 
                 //add to cart failed
-                alert("Product not added to cart! Something went wrong D:");
+                alert("Ah! Product was not added to cart. Something went wrong D:");
               }
             });
-        }
+        }// end of ajax call
 
 
         // centers modal 
@@ -357,8 +360,6 @@
           //run center function
           centerModal();
         }
-
-
 
         //close modal and overlay
         function closeModal(overlay){
