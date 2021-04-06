@@ -47,7 +47,6 @@ The requirements for each step/phase are as follows:
 ### Phase 1b
 
 - Ideally, the existing functionality for adding to cart on a PDP is replicated
-    - Cart size counter in the header updates
     - Bonus points for handling the error the same way as well
 
 ### Phase 2

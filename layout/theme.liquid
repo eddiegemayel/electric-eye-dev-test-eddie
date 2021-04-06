@@ -280,8 +280,11 @@
               success: function() { 
                 console.log('success');
 
-                //add item to cart count variable
+                //add 1 item to cart count variable
                 cartCount++; 
+
+                //udpate span icon next to the bag icon
+                $('.cart-count--current').html('' + cartCount + ''); 
 
                 //for testing
                 console.log("new cart count : "+ cartCount);
