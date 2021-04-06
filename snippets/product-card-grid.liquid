@@ -33,6 +33,11 @@
               data-aspectratio="{{ preview_image.aspect_ratio }}"
               data-sizes="auto"
               data-image>
+
+          <!-- {% for image in product.images %}
+            <img class="grid-view-item__image lazyload variant-image-number-{{ forloop.index }}" src="{{ image.src | product_img_url: 'large' }}" data-index="{{ image.url }}">
+          {% endfor %} -->
+
       </div>
     </div>
   </div>

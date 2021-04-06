@@ -183,6 +183,7 @@
       $(document).ready(function(){   
 
 
+
         //on click function to close modal
         $('.modal--overlay').on('click', function(){
 
@@ -244,6 +245,11 @@
       });// end of doc ready
 
 
+      //get variant selectd dropdown image URL
+       $(document).on('change', '.collection-variant-dropdown', function(e) {
+          //alert to test, grabs the ID which houses the correct URL
+          alert(this.options[e.target.selectedIndex].id);
+        });
     
       //for X to close modal
       //have to wrap in document.on because it is a dynamic element that doesnt exist until Add to cart button is clicked
