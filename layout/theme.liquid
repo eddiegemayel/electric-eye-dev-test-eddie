@@ -193,15 +193,6 @@
         });
 
 
-        //on click function to close modal
-        $('.close-the-modal').on('click', function(){
-
-          //if X is clicked, close the popup
-          var overlay = $('.modal--overlay');
-          closeModal(overlay);
-          console.log("close X click");
-        });
-        
 
         console.log(cartCount + " current items in cart.");
 
@@ -249,10 +240,19 @@
 
           });
           
-
         });
 
-      });
+      });// end of doc ready
+
+
+    
+      //this works
+      $(document).on("click", "span.close-the-modal" , function() {
+          //if X is clicked, close the popup
+          var overlay = $('.modal--overlay');
+          closeModal(overlay);
+          console.log("close X click");
+        });
 
 
       //actual add to cart ajax call function
