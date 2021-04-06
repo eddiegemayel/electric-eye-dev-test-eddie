@@ -203,7 +203,8 @@
           // make sure it fires off
           console.log("yes clicked");
 
-          //grab products URL. tested this works
+          //grab products URL / name
+          // name is just for the Popup modal
           var productURL = $(this).attr( "data-url" );
           var productTitle = $(this).attr( "data-name" );
 
@@ -222,17 +223,15 @@
           {% endif %}
           
 
+          //trying to get selected variant
           //couple ways to do this, but Im going thru .js file to get the variant associated
           $.getJSON(productURL + '.js', function(product) {
 
               console.log($(this).closest("select").attr("name"));
 
-
               var variant_id = product.variants[0].id;
               // var variant_id = product.variants[0].id;
               console.log(variant_id);
-
-
 
               //run ajax add to cart with arguments.
               // hard coded quantity for right now
@@ -265,13 +264,10 @@
               "quantity": qty
             }
 
-            //for testing
+            //for testing, make sure data passes through
             console.log(data);
 
             //make the ajax call. Based off Shopify docs
-            //this keeps returning 404. 
-            // I am basing it off shopify docs, does this not work for Dev store Preview stores?
-
             $.ajax({
               type: 'POST',
               url: '/cart/add.js',
@@ -298,7 +294,7 @@
               },
               error: function() { 
                 //add to cart failed
-                alert("Variant out of stock!");
+                alert("Product not added to cart! Something went wrong D:");
               }
             });
         }
@@ -307,23 +303,24 @@
       // centers modal 
       function centerModal(){
 
-      var modal = $('.modal.open');
-      var mWidth = modal.outerWidth()
-      var mHeight = modal.outerHeight();
-      var width = $(window).width();
-      var height = $(window).height();
+        var modal = $('.modal.open');
+        var mWidth = modal.outerWidth()
+        var mHeight = modal.outerHeight();
+        var width = $(window).width();
+        var height = $(window).height();
 
-      if((width % 1) != 0){
-        width = Math.round(width)
-      }
-      if((height % 1) != 0){
-        height = Math.round(height)
-      }
+        if((width % 1) != 0){
+          width = Math.round(width);
+        }
+
+        if((height % 1) != 0){
+          height = Math.round(height);
+        }
+
         var topPos = (height / 2) - (mHeight / 2);
         var leftPos = (width / 2) - (mWidth / 2); 
         modal.css({top: topPos, left:leftPos})
       }
-
 
 
       //open modal function to be called on success
@@ -347,7 +344,6 @@
         $('body').css('overflow', 'auto');
         console.log("close modal fire");
       }
-
 
 
 
