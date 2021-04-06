@@ -247,40 +247,37 @@
 
       //get variant selectd dropdown image URL
        $(document).on('change', '.collection-variant-dropdown', function(e) {
-          //alert to test, grabs the ID which houses the correct URL
-
+          
+          // grab image URL associated with varianat clicked
           var newVariantURL = this.options[e.target.selectedIndex].id;
+
+          //grab product URL that variant belongs to
           var newVariantProductAssociated = this.id;
 
-          var imgToUpdate = $("img").hasClass(newVariantProductAssociated);
+          //testing logs
+          // var imgToUpdate = $("img").hasClass(newVariantProductAssociated);
+          // console.log(newVariantProductAssociated);
+          // console.log($("img").hasClass(newVariantProductAssociated));
 
-          console.log(newVariantProductAssociated);
-          console.log($("img").hasClass(newVariantProductAssociated));
-
-          // if ($("img").hasClass(newVariantProductAssociated)) {
-          //   $(this).attr('src', newVariantURL);
-          // }
-          // alert(newVariantURL);
-          // alert(this.options[e.target.selectedIndex].id);
-
+          //look for image with the same product name. Update its src with the new URL
           $("img." + newVariantProductAssociated).attr('src', newVariantURL);
-
-          // $("img").hasClass(newVariantProductAssociated).attr('src', newVariantURL);
         });
+
+
     
-      //for X to close modal
-      //have to wrap in document.on because it is a dynamic element that doesnt exist until Add to cart button is clicked
-      $(document).on("click", "span.close-the-modal" , function() {
+        //for X to close modal
+        //have to wrap in document.on because it is a dynamic element that doesnt exist until Add to cart button is clicked
+        $(document).on("click", "span.close-the-modal" , function() {
 
-        //if X is clicked, close the popup
-        var overlay = $('.modal--overlay');
-        closeModal(overlay);
-        console.log("close X click");
-      });
+          //if X is clicked, close the popup
+          var overlay = $('.modal--overlay');
+          closeModal(overlay);
+          console.log("close X click");
+        });
 
 
-      //actual add to cart ajax call function
-       function addItemToCart(variant_id, qty, name) {
+        //actual add to cart ajax call function
+        function addItemToCart(variant_id, qty, name) {
 
             //take in arguments, put them in data json
             data = {
@@ -324,54 +321,56 @@
         }
 
 
-      // centers modal 
-      function centerModal(){
+        // centers modal 
+        //copied this over from a blog post, doesnt work as well as i wanted. Can be modified more later
+        function centerModal(){
 
-        var modal = $('.modal.open');
-        var mWidth = modal.outerWidth()
-        var mHeight = modal.outerHeight();
-        var width = $(window).width();
-        var height = $(window).height();
+          var modal = $('.modal.open');
+          var mWidth = modal.outerWidth()
+          var mHeight = modal.outerHeight();
+          var width = $(window).width();
+          var height = $(window).height();
 
-        if((width % 1) != 0){
-          width = Math.round(width);
+          if((width % 1) != 0){
+            width = Math.round(width);
+          }
+
+          if((height % 1) != 0){
+            height = Math.round(height);
+          }
+
+          var topPos = (height / 2) - (mHeight / 2);
+          var leftPos = (width / 2) - (mWidth / 2); 
+          modal.css({top: topPos, left:leftPos})
         }
 
-        if((height % 1) != 0){
-          height = Math.round(height);
+
+        //open modal function to be called on success
+        function openModal(){
+          //remove hidden classes
+          $('.modal').removeClass('hidden').addClass('open');
+          $('.modal--overlay').removeClass('hidden').addClass('open');
+
+          //make sure you cant scroll
+          $('body').css('overflow', 'hidden');
+
+          //run center function
+          centerModal();
         }
 
-        var topPos = (height / 2) - (mHeight / 2);
-        var leftPos = (width / 2) - (mWidth / 2); 
-        modal.css({top: topPos, left:leftPos})
-      }
 
 
-      //open modal function to be called on success
-      function openModal(){
-
-        //remove hidden classes
-        $('.modal').removeClass('hidden').addClass('open');
-        $('.modal--overlay').removeClass('hidden').addClass('open');
-
-        //make sure you cant scroll
-        $('body').css('overflow', 'hidden');
-
-        //run center function
-        centerModal();
-      }
-
-      //close modal and overlay
-      function closeModal(overlay){
-        $(overlay).addClass('hidden').removeClass('open');
-        $('.modal.open').addClass('hidden').removeClass('open');
-        $('body').css('overflow', 'auto');
-        console.log("close modal fire");
-      }
+        //close modal and overlay
+        function closeModal(overlay){
+          $(overlay).addClass('hidden').removeClass('open');
+          $('.modal.open').addClass('hidden').removeClass('open');
+          $('body').css('overflow', 'auto');
+          console.log("close modal fire");
+        }
 
 
-
-      //messing around with things below
+      // old attempts below
+      //messing around with things, can be ignored
           // 39552600015012
           // jQuery.post('/cart/add.js', {
           //   items: [
@@ -412,8 +411,6 @@
       //                 }, index*1000);
       //             }
       //         }
-              
-
 
       //     });
       //     setTimeout(function () {
