@@ -248,7 +248,12 @@
       //get variant selectd dropdown image URL
        $(document).on('change', '.collection-variant-dropdown', function(e) {
           //alert to test, grabs the ID which houses the correct URL
-          alert(this.options[e.target.selectedIndex].id);
+
+          var newVariantURL = this.options[e.target.selectedIndex].id;
+          // alert(newVariantURL);
+          // alert(this.options[e.target.selectedIndex].id);
+
+          $('.6623350554788').attr('src', newVariantURL);
         });
     
       //for X to close modal

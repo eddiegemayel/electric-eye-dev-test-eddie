@@ -52,7 +52,6 @@ The requirements for each step/phase are as follows:
 ### Phase 2
 
 - When a different variant is selected, the data in the product listing changes
-    - Image
     - Price
     - Product Link (Append Variant to URL)
 
