@@ -174,8 +174,7 @@
 
     <script>
 
-      //getting cart count 
-      // to update it later on
+      //getting cart count to update it later on
       var cartCount = '{{ cart.item_count }}';
 
       //doc ready
@@ -189,7 +188,6 @@
           closeModal(overlay);
           console.log("close click");
         });
-
 
         console.log(cartCount + " current items in cart.");
 
@@ -205,19 +203,6 @@
           var productTitle = $(this).attr( "data-name" );
 
           console.log(productTitle);
-
-          {% if product.variants.size == 1 %}
-            console.log("no variant");
-          {% else %}
-
-            console.log("yes variant");
-
-            //grab selected variant
-            // var varID = product.variants[0].id;
-
-            // console.log(varID);
-          {% endif %}
-          
 
           //trying to get selected variant
           //couple ways to do this, but Im going thru .js file to get the variant associated
@@ -252,7 +237,7 @@
           //store in variable above then grab class where price is stored with money liquid filter
           var newVariantProductPrice = $(grabPrice).attr("class");
 
-          console.log(newVariantProductPrice);
+          // console.log(newVariantProductPrice);
 
           //testing logs
           // var imgToUpdate = $("img").hasClass(newVariantProductAssociated);
@@ -262,7 +247,7 @@
           //look for image with the same product name. Update its src with the new URL
           $("img." + newVariantProductAssociated).attr('src', newVariantURL);
 
-          //look for image with the same product name. Update its src with the new URL
+          //look for price span with the same product name used above. Update its text contents with the new price
           $("span#" + newVariantProductAssociated).text("from " + newVariantProductPrice);
         });
 
@@ -272,8 +257,10 @@
         //have to wrap in document.on because it is a dynamic element that doesnt exist until Add to cart button is clicked
         $(document).on("click", "span.close-the-modal" , function() {
 
-          //if X is clicked, close the popup
+          //store overlay div class in a variable
           var overlay = $('.modal--overlay');
+
+          //run close modal function, pass thru argument
           closeModal(overlay);
           console.log("close X click");
         });

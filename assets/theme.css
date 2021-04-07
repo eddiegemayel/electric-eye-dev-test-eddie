@@ -7024,7 +7024,6 @@ a.enable-cart-btns:hover{
   -o-transition: all 0.31s ease;
 }
 
-
 body.template-collection div.modal {
    max-width: 575px;
    background: white;
@@ -7058,6 +7057,7 @@ div.modal--overlay {
    z-index: 100;
    background-color: rgba(0, 0, 0, 0.4);
 }
+
 div.hidden {
   display: none !important;
 }
@@ -7078,4 +7078,28 @@ a.modal-anchor{
 
 span.modal-strong{
   font-weight: bold !important;
+}
+
+select.collection-variant-dropdown{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+input.enable-cart-btns{
+  width: 100%;
+  padding: 8px 20px;
+  background-color: #000;
+  color: #fff;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
+}
+
+input.enable-cart-btns:hover{
+  background-color: #fff;
+  color: #000;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
 }
