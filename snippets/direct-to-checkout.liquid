@@ -5,9 +5,13 @@
 	{% if product.variants.size == 1 %}
 		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
 	{% else %}
-		<select name="id">
+		<select id="{{ product.title | handleize }}" class="collection-variant-dropdown" name="id">
 			{% for variant in product.variants %}
-				<option value="{{ variant.id }}">{{ variant.title }}</option>
+				{% if variant.available %}
+					<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-src-img="{{ variant.image.src | img_url : 'master' }}" class="{{ variant.price | money }}">{{ variant.title }}</option>
+			 	{% else %}
+			 		<option disabled value="{{ variant.id }}" data-src-img="{{ variant.image.src }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>
+			 	{% endif %}
 			{% endfor %}
 		</select>
 	{% endif %}
