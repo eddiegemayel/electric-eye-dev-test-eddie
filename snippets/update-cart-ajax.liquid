@@ -8,11 +8,11 @@
 	{% else %}
 		<select id="{{ product.title | handleize }}" class="collection-variant-dropdown" name="id">
 			{% for variant in product.variants %}
-			 {% if variant.available %}
-				<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-prod-url="{{ product.url }}" class="{{ variant.price | money }}">{{ variant.title }}</option>
-			 {% else %}
-			 	<option disabled value="{{ variant.id }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>
-			 {% endif %}
+				{% if variant.available %}
+					<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-prod-url="{{ product.url }}" class="{{ variant.price | money }}">{{ variant.title }}</option>
+			 	{% else %}
+			 		<option disabled value="{{ variant.id }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>
+			 	{% endif %}
 			{% endfor %}
 		</select>
 	{% endif %}
