@@ -253,7 +253,10 @@
           //grab product URL from the value for changing the anchor tag HREF
           var grabProductURL = $(grabOptionElement).attr("data-prod-url");
 
+          //combine URL variables to make new URL to be applied
           var newCombinedURL = grabProductURL + "?variant=" + grabVariantAnchorURL;
+
+          
           // console.log(newVariantProductPrice);
 
           //testing logs
@@ -267,13 +270,12 @@
           //look for price span with the same product name used above. Update its text contents with the new price
           $("span#" + newVariantProductAssociated).text("from " + newVariantProductPrice);
 
-          //look for price span with the same product name used above. Update its text contents with the new price
+          //look for anchor tag HREF with the same product class name used above. Update its href with new combined variable
           $("a.anchor-tag-" + newVariantProductAssociated).attr("href", newCombinedURL);
 
           //look for price span with the same product name used above. Update its text contents with the new price
           // $("span#" + newVariantProductAssociated).replace("from " + grabProductURL + "?variant=" + grabVariantAnchorURL);
 
-          console.log(changeURL);
           console.log(newCombinedURL);
         });
 
