@@ -180,6 +180,8 @@
       //doc ready
       $(document).ready(function(){   
 
+
+
         //on click function to close modal
         $('.modal--overlay').on('click', function(){
 
@@ -189,7 +191,12 @@
           console.log("close click");
         });
 
+
+
         console.log(cartCount + " current items in cart.");
+
+
+
 
         //when add to cart ajax is clicked
         $('.enable-cart-btns').click(function(){
@@ -222,21 +229,31 @@
       });// end of document ready wrap
 
 
-      //get variant dropdown image URL and price when clicked
+
+
+
+      //get variant dropdown image URL/price/ID when clicked
        $(document).on('change', '.collection-variant-dropdown', function(e) {
           
           // grab image URL associated with varianat clicked
-          var newVariantURL = this.options[e.target.selectedIndex].id;
+          var newVariantImageURL = this.options[e.target.selectedIndex].id;
 
-          //grab product URL that variant belongs to
+          //grab product name that variant belongs to
           var newVariantProductAssociated = this.id;
 
           //grab product price that variant belongs to
-          var grabPrice = this.options[e.target.selectedIndex];
+          var grabOptionElement = this.options[e.target.selectedIndex];
 
-          //store in variable above then grab class where price is stored with money liquid filter
-          var newVariantProductPrice = $(grabPrice).attr("class");
+          //then grab class where price is stored with money liquid filter
+          var newVariantProductPrice = $(grabOptionElement).attr("class");
 
+          //grab variant ID from the value for changing the anchor tag HREF
+          var grabVariantAnchorURL = $(grabOptionElement).attr("value");
+
+          //grab product URL from the value for changing the anchor tag HREF
+          var grabProductURL = $(grabOptionElement).attr("data-prod-url");
+
+          var newCombinedURL = grabProductURL + "?variant=" + grabVariantAnchorURL;
           // console.log(newVariantProductPrice);
 
           //testing logs
@@ -245,11 +262,22 @@
           // console.log($("img").hasClass(newVariantProductAssociated));
 
           //look for image with the same product name. Update its src with the new URL
-          $("img." + newVariantProductAssociated).attr('src', newVariantURL);
+          $("img." + newVariantProductAssociated).attr('src', newVariantImageURL);
 
           //look for price span with the same product name used above. Update its text contents with the new price
           $("span#" + newVariantProductAssociated).text("from " + newVariantProductPrice);
+
+          //look for price span with the same product name used above. Update its text contents with the new price
+          $("a.anchor-tag-" + newVariantProductAssociated).attr("href", newCombinedURL);
+
+          //look for price span with the same product name used above. Update its text contents with the new price
+          // $("span#" + newVariantProductAssociated).replace("from " + grabProductURL + "?variant=" + grabVariantAnchorURL);
+
+          console.log(changeURL);
+          console.log(newCombinedURL);
         });
+
+
 
 
     
@@ -264,6 +292,9 @@
           closeModal(overlay);
           console.log("close X click");
         });
+
+
+
 
 
         //actual add to cart ajax call function
@@ -311,8 +342,11 @@
         }// end of ajax call
 
 
+
+
+
         // centers modal 
-        //copied this over from a blog post, doesnt work as well as i wanted. Can be modified more later
+        //copied this over from a blog post, does not work 100%. Can be modified more later
         function centerModal(){
 
           var modal = $('.modal.open');
@@ -335,6 +369,8 @@
         }
 
 
+
+
         //open modal function to be called on success
         function openModal(){
           //remove hidden classes
@@ -348,6 +384,8 @@
           centerModal();
         }
 
+
+
         //close modal and overlay
         function closeModal(overlay){
           $(overlay).addClass('hidden').removeClass('open');
@@ -355,6 +393,11 @@
           $('body').css('overflow', 'auto');
           console.log("close modal fire");
         }
+
+
+
+
+
 
 
       // old attempts below

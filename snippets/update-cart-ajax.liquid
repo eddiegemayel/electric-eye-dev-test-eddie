@@ -9,9 +9,9 @@
 		<select id="{{ product.title | handleize }}" class="collection-variant-dropdown" name="id">
 			{% for variant in product.variants %}
 			 {% if variant.available %}
-				<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-src-img="{{ variant.image.src | img_url : 'master' }}" class="{{ variant.price | money }}">{{ variant.title }}</option>
+				<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-prod-url="{{ product.url }}" class="{{ variant.price | money }}">{{ variant.title }}</option>
 			 {% else %}
-			 	<option disabled value="{{ variant.id }}" data-src-img="{{ variant.image.src }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>
+			 	<option disabled value="{{ variant.id }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>
 			 {% endif %}
 			{% endfor %}
 		</select>
