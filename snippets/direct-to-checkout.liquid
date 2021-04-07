@@ -1,5 +1,5 @@
 <!-- <form action="/cart/add" method="post"> -->
-<form action="/checkout/" method="post">
+<form action="/cart/add" method="post">
 
 	{% if section.settings.enable-variants %}
 	{% if product.variants.size == 1 %}
@@ -19,5 +19,7 @@
 
 	<div>
 		<input type="submit" name="add" value="Direct To Checkout" class="for-loop-index-{{ forloop.index }} {{ product.id }} enable-cart-btns"></input>
+
+		<input type="hidden" name="return_to" value="/checkout/" />
 	</div>  
 </form>

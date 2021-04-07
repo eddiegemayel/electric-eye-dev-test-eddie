@@ -198,32 +198,33 @@
 
 
         //when add to cart ajax is clicked
-        $('.enable-cart-btns').click(function(){
+        $('.ajax-submit-btn').click(function(){
 
           // make sure it fires off
           console.log("yes clicked");
 
           //grab products URL / name
           // name is just for the Popup modal
-          var productURL = $(this).attr( "data-url" );
-          var productTitle = $(this).attr( "data-name" );
+          var productURL = $(this).attr("data-url");
+          var productTitle = $(this).attr("data-name");
 
-          console.log(productTitle);
+          console.log("Here here ! " + productTitle);
 
-          //trying to get selected variant
-          //couple ways to do this, but Im going thru .js file to get the variant associated
-          $.getJSON(productURL + '.js', function(product) {
+          //look for price span with the same product name used above. Update its text contents with the new price
+          var selectElement = $("select#" + productTitle);
 
-              console.log($(this).closest("select").attr("name"));
+          //look for image with the same product name. Update its src with the new URL
+          selectElement.attr('class', "testing");
 
-              //this grabs only first variant for now, plan to make dynamic later
-              var variant_id = product.variants[0].id;
-              console.log(variant_id);
+          console.log("select element ID " + selectElement.attr("id"));
 
-              //run ajax add to cart with arguments
-              // hard coded quantity for ajax call
-              addItemToCart(variant_id, 1, productTitle); 
-          });
+          var currentVariantIdSelected = selectElement.val();
+
+          console.log("Value of select" + currentVariantIdSelected);
+
+          addItemToCart(currentVariantIdSelected, 1, productTitle); 
+
+          
         });
       });// end of document ready wrap
 
@@ -234,8 +235,11 @@
       //get variant dropdown image URL/price/ID when clicked
        $(document).on('change', '.collection-variant-dropdown', function(e) {
           
-          // grab image URL associated with varianat clicked
+          // grab image URL associated with variant clicked
           var newVariantImageURL = this.options[e.target.selectedIndex].id;
+
+          // grab image URL associated with variant clicked
+          // var storeOption = this.options[e.target.selectedIndex];
 
           //grab product name that variant belongs to
           var newVariantProductAssociated = this.id;
@@ -337,7 +341,7 @@
               },
               error: function() { 
                 //add to cart failed
-                alert("Ah! Product was not added to cart. Something went wrong D:");
+                alert("Variant is out of stock D:");
               }
             });
         }// end of ajax call
