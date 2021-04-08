@@ -1,0 +1,42 @@
+<!-- <form action="/cart/add" method="post" id="add-to-cart"> -->
+
+	
+
+	{% if section.settings.enable-variants %}
+	{% if product.variants.size == 1 %}
+		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+	{% else %}
+		<select id="{{ product.title | handleize }}" class="collection-variant-dropdown" name="id">
+			{% for variant in product.variants %}
+				{% if variant.available %}
+					<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-prod-url="{{ product.url }}" class="{{ variant.price | money }}">{{ variant.title }}</option>
+			 	{% else %}
+			 		<option disabled value="{{ variant.id }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>
+			 	{% endif %}
+			{% endfor %}
+		</select>
+	{% endif %}
+	{% endif %}
+
+	{% assign current_var = product.selected_or_first_available_variant %}
+
+	<div>
+		<input type="submit" name="add" id="ajax-fire" value="Ajax Add to Cart" class="for-loop-index-{{ forloop.index }} {{ product.id }} enable-cart-btns ajax-submit-btn" data-url="{{ product.url }}" data-name="{{ product.title | handleize }}">
+			
+		</input>
+
+		<!-- <h1>{{ product.selected_or_first_available_variant }}</h1> -->
+		<!-- <h1>{{ product.first_available_variant }}</h1> -->
+
+		<!-- {% for image in product.images %}
+  			<img class="variant-image-number-{{ forloop.index }}" src="{{ image.src | product_img_url: 'large' }}" data-index="{{ product.url }}">
+		{% endfor %} -->
+
+
+
+	</div>  
+
+
+
+<!-- </form> -->
+

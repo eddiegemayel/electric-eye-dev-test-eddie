@@ -53,7 +53,7 @@
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
     </dt>
     <dd>
-      <span class="price-item price-item--regular">
+      <span id="{{ product.title | handleize }}" class="price-item price-item--regular">
         {%- if product.price_varies -%}
           {{ 'products.product.from_lowest_price_html' | t: lowest_price: money_price }}
         {%- else -%}
@@ -116,4 +116,25 @@
       <span>{{ 'products.product.sold_out' | t }}</span>
     </span>
   </div>
+
+  {% if section.settings.enable-cart-btn == 'enable-checkout' %}
+    <!-- <a href="Test" class="enable-cart-btns">To Checkout</a> -->
+    {% unless product.available == false %}
+      {% render 'direct-to-checkout', product: product%}
+    {% endunless %}
+
+  {% elsif section.settings.enable-cart-btn == 'enable-cart' %}  
+
+   {% unless product.available == false %}
+      {% render 'update-cart-ajax', product: product%}
+    {% endunless %}
+
+  {% elsif section.settings.enable-cart-btn == 'none-enabled' %}  
+
+
+  {% endif %}
+
 </dl>
+
+
+

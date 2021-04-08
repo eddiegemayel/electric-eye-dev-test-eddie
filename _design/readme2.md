@@ -19,19 +19,12 @@ Before starting, ensure you have [ThemeKit](https://shopify.github.io/themekit/)
 You should also have a mild understanding of Shopify's [theme settings](https://shopify.dev/docs/themes/settings), [Liquid template language](https://shopify.github.io/liquid/), [Ajax API](https://shopify.dev/docs/themes/ajax-api), and are familiar with the [git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
 Finally, as this is a frontend developer role, you should be comfortable writing Javascript, CSS, and HTML.
-
 ## Setup Instructions
-1. Create a new Git repository with this code
-    - Github or BitBucket preferred
-    - Can be public or private
-1. Create a development branch off of master
-1. Complete the requirements
-    - Within your dev store
-    - Using the provided Debut theme (what this codebase is)
 1. Review/QA code against evaluation criteria
 1. Create a pull request into the master branch
 1. Share link or provide access to your repo
 1. Share development store URL
+
 
 ## Scenario
 
@@ -51,38 +44,27 @@ Being mindful of the time constraint, start with completing Phase 1, and then mo
 
 The requirements for each step/phase are as follows:
 
-### Phase 1a
-
-- Create a new "Collection" section in the Shopify theme customize view, under "Theme settings"
-- This new setting section contains a toggle for enabling our new buy now feature
-- On collection pages, a "buy now" button shows under each available product when the toggle is on
-    - Do not show if the product is unavailable
-- When buy now is clicked, the browser is redirected to checkout with the chosen product in the cart
-
 ### Phase 1b
 
-- Create a second toggle to change the button to "add to cart"
-- The "buy now" button under each product changes to an "add to cart" button when both toggles are on
-- When add to cart is clicked, the product is added to the cart, and the browser does not redirect
 - Ideally, the existing functionality for adding to cart on a PDP is replicated
-    - Cart size counter in the header updates
-    - A small modal displays with information about the newly added product
     - Bonus points for handling the error the same way as well
 
 ### Phase 2
 
-- Create a third toggle to show or hide product variants
-- If a product has multiple variants, a select dropdown displays
-    - Each of the product's variants display as options
-    - Disable variants that are unavailable
 - When a different variant is selected, the data in the product listing changes
-    - Image
     - Price
     - Product Link (Append Variant to URL)
+
 - Bonus Points:
     - Always have an in-stock variant selected by default
     - Handle errors 
-        - Match functionality on PDPs
+    - Match functionality on PDPs
+
+
+
+
+
+
 
 ## Evaluation Criteria
 

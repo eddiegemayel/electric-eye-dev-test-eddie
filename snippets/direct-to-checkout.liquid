@@ -1,0 +1,25 @@
+<!-- <form action="/cart/add" method="post"> -->
+<form action="/cart/add" method="post">
+
+	{% if section.settings.enable-variants %}
+	{% if product.variants.size == 1 %}
+		<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+	{% else %}
+		<select id="{{ product.title | handleize }}" class="collection-variant-dropdown" name="id">
+			{% for variant in product.variants %}
+				{% if variant.available %}
+					<option value="{{ variant.id }}" id="{{ variant.image.src | img_url : 'master' }}" data-prod-url="{{ product.url }}" class="{{ variant.price | money }}">{{ variant.title }}</option>
+			 	{% else %}
+			 		<option disabled value="{{ variant.id }}" class="variant-number-{{ forloop.index }}">{{ variant.title }}</option>
+			 	{% endif %}
+			{% endfor %}
+		</select>
+	{% endif %}
+	{% endif %}
+
+	<div>
+		<input type="submit" name="add" value="Direct To Checkout" class="for-loop-index-{{ forloop.index }} {{ product.id }} enable-cart-btns"></input>
+
+		<input type="hidden" name="return_to" value="/checkout/" />
+	</div>  
+</form>

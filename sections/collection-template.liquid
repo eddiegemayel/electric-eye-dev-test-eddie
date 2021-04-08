@@ -55,6 +55,11 @@
     {% else %}
       <div class="page-width">
         <div class="section-header text-center">
+
+          <div class="modal hidden" id="download-modal"></div>
+          <div class="modal--overlay hidden"></div>
+
+
           <h1>
               <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
               {{ collection.title }}
@@ -140,8 +145,9 @@
       <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+            {% include 'product-card-grid', max_height: max_height, product: product %}
           </li>
+
         {% else %}
           {% comment %}
           Add default products to help with onboarding for collections/all only.
@@ -261,6 +267,33 @@
     "zh-TW": "商品系列頁面"
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "enable-cart-btn",
+      "label": "Buy Button Options",
+      "options": [
+        {
+          "value": "enable-checkout",
+          "label": "Enable Direct to Checkout"
+        },
+        {
+          "value": "enable-cart",
+          "label": "Enable Ajax Add to Cart"
+        },
+        {
+          "value": "none-enabled",
+          "label": "No Button"
+        }
+      ],
+      "default": "enable-checkout"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "enable-variants",
+      "label": "Enable Variants",
+      "default": true
+    },
     {
       "type": "select",
       "id": "layout",

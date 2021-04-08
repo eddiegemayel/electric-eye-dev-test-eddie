@@ -6996,3 +6996,110 @@ hr {
 
 .store-availability-list__phone {
   margin-bottom: 0; }
+
+
+/*================================
+==================================
+CUSTOM CSS
+==================================
+================================*/
+a.enable-cart-btns{
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 20px;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
+}
+
+a.enable-cart-btns:hover{
+  background-color: #fff;
+  color: #000;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
+}
+
+body.template-collection div.modal {
+   max-width: 575px;
+   background: white;
+   border: 5px solid #111;
+   padding: 50px 65px;
+   position: fixed;
+   z-index: 1000;
+
+   width: 300px;
+    height: 300px;
+}
+
+body.template-collection div.modal.open {
+   display: block !important;
+   opacity: 1 !important;
+}
+
+.modal .close {
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   font-size: 20px;
+   cursor: pointer;
+}
+div.modal--overlay {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: 100;
+   background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+div.hidden {
+  display: none !important;
+}
+
+p.prod-ajax-name{
+  display: inline;
+  margin-top: 500px;
+  color: #000 !important;
+}
+
+p.modal-new-cart-count{
+  margin-top: 40px;
+}
+
+a.modal-anchor{
+  text-decoration: underline;
+}
+
+span.modal-strong{
+  font-weight: bold !important;
+}
+
+select.collection-variant-dropdown{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+input.enable-cart-btns{
+  width: 100%;
+  padding: 8px 20px;
+  background-color: #000;
+  color: #fff;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
+}
+
+input.enable-cart-btns:hover{
+  background-color: #fff;
+  color: #000;
+  -webkit-transition: all 0.31s ease;
+  -moz-transition: all 0.31s ease;
+  -o-transition: all 0.31s ease;
+}
